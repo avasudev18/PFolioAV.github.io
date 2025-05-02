@@ -1,0 +1,308 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio - Anilkumar Vasudevakurup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+        }
+        h2 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        h3 {
+            margin-top: 15px;
+            font-size: 1.2em;
+        }
+        p, ul {
+            margin: 10px 0;
+            color: #555;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .contact-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-info a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .project {
+            margin-left: 20px;
+        }
+        .results {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Anilkumar Vasudevakurup</h1>
+        <div class="contact-info">
+            <p>Product Management & Customer Success Professional</p>
+            <p>Email: <a href="mailto:anilvasudev2001@gmail.com">anilvasudev2001@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/anil-vasudevakurup" target="_blank">linkedin.com/in/anil-vasudevakurup</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p>Experienced product management and customer success professional with extensive expertise in implementing digital commerce solutions and enterprise integration projects. Specialized in cloud-based platforms for the automotive, industrial, and manufacturing sectors, focusing on enhancing operational efficiency and customer experience through intelligent system integration.</p>
+        </div>
+
+        <div class="section">
+            <h2>Core Skills & Expertise</h2>
+            <ul>
+                <li>Digital Commerce Implementation - Expert in deploying B2B and B2C e-commerce platforms</li>
+                <li>System Integration - Specialist in connecting ERP systems with digital commerce platforms</li>
+                <li>AI & Data Analytics - Implementation of AI-driven recommendation engines and analytics solutions</li>
+                <li>Customer Success - Strategic guidance for business transformation and adoption</li>
+                <li>Project Management - Leading complex, cross-functional enterprise implementations</li>
+                <li>Technical Leadership - Bridging technical solutions with business requirements</li>
+                <li>Master Data Management - Synchronizing customer and parts data across systems</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <h3>Product Management, Customer Success - PhaseZero Ventures</h3>
+            <p>Provided leadership in implementing and optimizing CxCommerce digital platform across multiple enterprise clients, focusing on automotive, industrial, and manufacturing sectors.</p>
+
+            <div class="project">
+                <h3>Heavy Duty Parts Catalog Integration</h3>
+                <p><strong>Objective:</strong> Enhance CxCommerce with a heavy-duty parts catalog integration for real-time product information, pricing, and inventory visibility.</p>
+                <p><strong>Actions Taken:</strong></p>
+                <ul>
+                    <li>Developed automated API connections between CxCommerce and supply chain systems</li>
+                    <li>Implemented AI-powered product matching to improve search relevance</li>
+                    <li>Enabled real-time price updates and inventory synchronization</li>
+                    <li>Integrated order management processes with checkout workflows</li>
+                </ul>
+                <p class="results"><strong>Results:</strong></p>
+                <ul class="results">
+                    <li>30% faster product updates through automated catalog synchronization</li>
+                    <li>20% reduction in order processing time</li>
+                    <li>Improved customer satisfaction and search experience</li>
+                    <li>Higher sales conversion rates due to better pricing transparency</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Customer Master Data Integration</h3>
+                <p><strong>Objective:</strong> Synchronize customer records between CxCommerce and multiple ERP systems to eliminate data inconsistencies and improve order processing.</p>
+                <p><strong>Actions Taken:</strong></p>
+                <ul>
+                    <li>Developed API-based real-time sync between CxCommerce and ERP platforms</li>
+                    <li>Implemented data validation to prevent duplicate customer entries</li>
+                    <li>Designed batch and real-time update processes for high transaction volumes</li>
+                    <li>Established role-based access controls to protect sensitive customer data</li>
+                </ul>
+                <p class="results"><strong>Results:</strong></p>
+                <ul class="results">
+                    <li>99% reduction in customer data discrepancies</li>
+                    <li>50% faster order processing</li>
+                    <li>20% decrease in customer support tickets</li>
+                    <li>Seamless multi-channel customer experience</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>AI-Based Related Parts Recommendation Engine</h3>
+                <p><strong>Objective:</strong> Develop an AI-powered recommendation engine to enhance cross-selling and upselling opportunities.</p>
+                <p><strong>Actions Taken:</strong></p>
+                <ul>
+                    <li>Integrated purchase history, search patterns, and customer behavior data</li>
+                    <li>Used machine learning algorithms to identify frequently bought-together items</li>
+                    <li>Implemented recommendation displays on product detail pages, cart, and checkout</li>
+                    <li>A/B tested different recommendation models to optimize performance</li>
+                </ul>
+                <p class="results"><strong>Results:</strong></p>
+                <ul class="results">
+                    <li>20% increase in average order value (AOV)</li>
+                    <li>35% higher cross-sell and upsell revenue</li>
+                    <li>50% reduction in manual effort for sales teams</li>
+                    <li>15% increase in conversion rates</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>E-Commerce Analytics Platform</h3>
+                <p><strong>Objective:</strong> Develop comprehensive business intelligence dashboards for sales tracking, inventory management, and product performance.</p>
+                <p><strong>Actions Taken:</strong></p>
+                <ul>
+                    <li>Integrated CxCommerce sales, customer, and inventory data into centralized analytics</li>
+                    <li>Created interactive dashboards for tracking sales trends by region and customer</li>
+                    <li>Implemented automated data consistency checks and stockout monitoring</li>
+                    <li>Set up real-time alerts for critical inventory and sales issues</li>
+                </ul>
+                <p class="results"><strong>Results:</strong></p>
+                <ul class="results">
+                    <li>30% increase in sales visibility through real-time tracking</li>
+                    <li>99% reduction in data quality issues</li>
+                    <li>25% reduction in stockout-related lost sales</li>
+                    <li>Optimized product performance through better pricing strategies</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Root Cause Analysis (RCA) Maturity Assessment</h3>
+                <p><strong>Objective:</strong> Implement structured processes for issue resolution, focusing on repeatability, scalability, and reusability.</p>
+                <p><strong>Actions Taken:</strong></p>
+                <ul>
+                    <li>Set up specific data capture fields for regression tracking and root cause analysis</li>
+                    <li>Implemented classification system for issue categorization</li>
+                    <li>Established documentation standards for solutions and preventive measures</li>
+                    <li>Created framework for evaluating solution applicability across customer base</li>
+                </ul>
+                <p><strong>Recommendations:</strong></p>
+                <ul>
+                    <li>Enhanced team training on data capture importance</li>
+                    <li>Implemented accountability measures for process adoption</li>
+                    <li>Established regular data review cycles</li>
+                    <li>Streamlined processes to improve user adoption</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Enterprise System Implementation Projects</h2>
+            <div class="project">
+                <h3>Oracle Field Service Cloud Implementation - Energy Sector</h3>
+                <p><strong>Scope:</strong> Implementation of Oracle Field Service for asset maintenance management across multiple subsidiary companies in the energy sector.</p>
+                <p><strong>Key Contributions:</strong></p>
+                <ul>
+                    <li>Integrated asset details from IBM Maximo with Oracle Field Service</li>
+                    <li>Coordinated work order lifecycle management between systems</li>
+                    <li>Implemented inspection forms and maintenance schedules</li>
+                    <li>Developed processes for estimation and approval of additional work</li>
+                </ul>
+                <p class="results"><strong>Results:</strong></p>
+                <ul class="results">
+                    <li>Improved visibility into asset health and work order status</li>
+                    <li>Enhanced decision-making capabilities and minimized downtime</li>
+                    <li>Better planning and resource allocation through accurate maintenance scheduling</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Oracle Field Service Implementation - Data Storage Industry</h3>
+                <p><strong>Scope:</strong> Implementation of Oracle Field Service Cloud within an existing SAP ecosystem for a major data storage company.</p>
+                <p><strong>Key Contributions:</strong></p>
+                <ul>
+                    <li>Developed robust integration framework between SAP and OFSC</li>
+                    <li>Built custom workflows for return management and logistics</li>
+                    <li>Integrated real-time inventory tracking between systems</li>
+                    <li>Enabled field technicians with mobile access to work orders and customer data</li>
+                </ul>
+                <p class="results"><strong>Results:</strong></p>
+                <ul class="results">
+                    <li>Improved field technician productivity with real-time data access</li>
+                    <li>Enhanced inventory and logistics management</li>
+                    <li>Increased customer satisfaction through faster service delivery</li>
+                    <li>Better data consistency across enterprise systems</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>HVAC Service Management Implementation</h3>
+                <p><strong>Scope:</strong> Implementation of Oracle Field Service Cloud for streamlining service and installation processes for commercial and industrial HVAC systems.</p>
+                <p><strong>Key Contributions:</strong></p>
+                <ul>
+                    <li>Created custom workflows for different service and installation types</li>
+                    <li>Integrated inventory management with field service platform</li>
+                    <li>Implemented intelligent scheduling and dispatch optimization</li>
+                    <li>Developed real-time customer communication system</li>
+                </ul>
+                <p class="results"><strong>Results:</strong></p>
+                <ul class="results">
+                    <li>Increased technician productivity through mobile work order management</li>
+                    <li>Improved customer satisfaction with real-time service tracking</li>
+                    <li>Enhanced operational efficiency with optimized scheduling</li>
+                    <li>Provided management with real-time insights into service performance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education & Certifications</h2>
+            <ul>
+                <li>Bachelor's Degree in Computer Science</li>
+                <li>Certified Scrum Product Owner (CSPO)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Professional Philosophy</h2>
+            <p>"I believe in creating technological solutions that not only solve immediate business challenges but also establish foundations for future growth. By focusing on data-driven decision making and customer-centric implementations, I help organizations leverage digital commerce to transform their operations and customer experiences."</p>
+        </div>
+    </div>
+</body>
+</html>
