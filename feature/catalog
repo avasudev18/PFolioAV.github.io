@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heavy Duty Parts Catalog Integration</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #005b96;
+      border-bottom: 2px solid #cce5ff;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: disc inside;
+    }
+    .highlight {
+      font-size: 1.2em;
+      margin: 10px 0;
+      color: #2e7d32;
+    }
+    .metrics {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .metric-box {
+      background-color: #e3f2fd;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Heavy Duty Parts Catalog Integration</h1>
+    <p>By Anil Vasudev</p>
+  </header>
+
+  <section>
+    <h2>Project Overview</h2>
+    <p>This project integrated heavy-duty parts catalogs with the CxCommerce platform to enable real-time product data, pricing, and inventory visibility. The goal was to enhance customer experience, improve operational efficiency, and drive business growth.</p>
+
+    <h2>Key Objectives</h2>
+    <ul>
+      <li>Provide real-time product data across all customer channels</li>
+      <li>Enable instant pricing updates to reflect market conditions</li>
+      <li>Ensure accurate inventory tracking for better fulfillment</li>
+      <li>Streamline the end-to-end order management process</li>
+    </ul>
+
+    <h2>System Architecture</h2>
+    <p>Built on a robust three-tier architecture:</p>
+    <ul>
+      <li><strong>CxCommerce Platform:</strong> Customer-facing eCommerce site</li>
+      <li><strong>Integration Layer:</strong> API connectors, data transformation services</li>
+      <li><strong>Supply Chain Systems:</strong> Catalog, inventory, and pricing databases</li>
+    </ul>
+
+    <h2>AI-Powered Product Matching</h2>
+    <p>We addressed the challenge of inconsistent SKUs and naming conventions using machine learning algorithms to match products across systems with 95% accuracy—up from 70% manually—reducing catalog maintenance time by 40%.</p>
+
+    <h2>Real-Time Pricing & Inventory</h2>
+    <ul>
+      <li>Updates now occur in under 2 minutes (previously 24 hours)</li>
+      <li>Business rules and validations are applied in-flight</li>
+      <li>Product changes instantly reflected on the storefront</li>
+    </ul>
+
+    <h2>Order Management Integration</h2>
+    <ul>
+      <li>Live inventory verification during checkout</li>
+      <li>Automated routing to fulfillment centers</li>
+      <li>Order status updates flow back to customers</li>
+    </ul>
+    <p class="highlight">Manual intervention reduced by 80%; order error rate dropped from 12% to under 3%.</p>
+
+    <h2>Measurable Results</h2>
+    <div class="metrics">
+      <div class="metric-box">
+        <strong>30%</strong><br/>
+        Faster Product Updates
+      </div>
+      <div class="metric-box">
+        <strong>20%</strong><br/>
+        Reduced Order Processing Time
+      </div>
+      <div class="metric-box">
+        <strong>15%</strong><br/>
+        Sales Conversion Increase
+      </div>
+      <div class="metric-box">
+        <strong>25%</strong><br/>
+        Customer Satisfaction Gain
+      </div>
+    </div>
+
+    <h2>Future Enhancements</h2>
+    <ul>
+      <li><strong>Predictive Inventory:</strong> AI-driven stock forecasting to reduce stockouts by 40%</li>
+      <li><strong>Dynamic Pricing:</strong> Algorithms for market-responsive pricing</li>
+      <li><strong>Mobile Experience:</strong> Dedicated app for technicians with barcode reordering</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 Anil Vasudev | Product Portfolio | All rights reserved.
+  </footer>
+</body>
+</html>
