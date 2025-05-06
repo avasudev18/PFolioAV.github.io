@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartGardener App Prototype</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f5f4;
+    }
+    header, section {
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    header {
+      background-color: #88c9bf;
+      color: white;
+      text-align: center;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #e0f2f1;
+      padding: 10px;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .zone {
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9em;
+    }
+    .indoor { background-color: #f8bbd0; color: #880e4f; }
+    .outdoor { background-color: #c8e6c9; color: #2e7d32; }
+    button {
+      padding: 10px 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .weather, .seeding, .diagnose {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SmartGardener</h1>
+    <p>Grow Smart. Live Green.</p>
+  </header>
+
+  <div class="nav">
+    <a href="#" onclick="showSection('weather')">Weather</a>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('seeding')">Seeding</a>
+    <a href="#" onclick="showSection('diagnose')">Diagnose</a>
+  </div>
+
+  <section id="weather" class="weather">
+    <h2>Weather Forecast</h2>
+    <p>Current Location: Denver, CO</p>
+    <p>Today: ☀️ Sunny, 52°F</p>
+    <p>Next 7 Days: Sun, Rain, Cloudy...</p>
+  </section>
+
+  <section id="home">
+    <h2>Your Plants</h2>
+    <div class="card">
+      <h3>Tomato</h3>
+      <span class="zone outdoor">Outdoor</span>
+      <p>☀️ Full Sun | 💧 Twice/Week</p>
+      <button onclick="alert('Tomato removed')">Remove</button>
+    </div>
+    <div class="card">
+      <h3>Snake Plant</h3>
+      <span class="zone indoor">Indoor</span>
+      <p>☀️ Indirect Light | 💧 Once/2 Weeks</p>
+      <button onclick="alert('Snake Plant removed')">Remove</button>
+    </div>
+    <button onclick="alert('Add Plant Feature')">+ Add Plant</button>
+  </section>
+
+  <section id="seeding" class="seeding">
+    <h2>Indoor Seeding Time</h2>
+    <p>Zone: 6b (Denver, CO)</p>
+    <p><strong>Start tomato seeds indoors:</strong> Feb 25 – Mar 10</p>
+    <p><strong>Start basil seeds indoors:</strong> Mar 01 – Mar 20</p>
+  </section>
+
+  <section id="diagnose" class="diagnose">
+    <h2>Plant Disease Detection</h2>
+    <p>Upload leaf image to detect disease</p>
+    <button onclick="alert('Capture/Upload Image')">Capture Image</button>
+    <div class="card">
+      <h3>Potential Cause: Leaf Spot Disease</h3>
+      <p>Recommendation: Remove affected leaves, apply neem oil</p>
+    </div>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+    // Default view
+    showSection('home');
+  </script>
+</body>
+</html>
