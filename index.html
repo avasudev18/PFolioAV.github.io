@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anil Vasudevakurup | Product & AI Leader</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+<!-- ================================================= HERO ================================================= -->
+<header class="relative bg-cover bg-center" style="background-image:url('Desert.png');">
+  <div class="absolute inset-0 bg-slate-900/75"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 py-24 text-center text-white">
+    <h1 class="text-4xl md:text-5xl font-bold">Anil Vasudevakurup</h1>
+    <p class="mt-4 text-lg text-slate-200">
+      Director of Product Management • AI • SaaS • Field Service • ERP
+    </p>
+
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="AnilVasudevakurup_PM_CSM_122025.pdf"
+         class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 font-semibold">
+        Download Resume
+      </a>
+      <a href="https://linkedin.com/in/anil-vasudevakurup"
+         target="_blank"
+         class="px-6 py-3 rounded-lg border border-slate-300 hover:bg-slate-800">
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================= METRICS ================================================= -->
+<section class="bg-blue-700 text-white">
+  <div class="max-w-6xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div><p class="text-2xl font-bold">15+</p><p>Years Experience</p></div>
+    <div><p class="text-2xl font-bold">40%</p><p>Efficiency Gains</p></div>
+    <div><p class="text-2xl font-bold">20%</p><p>Revenue Growth</p></div>
+    <div><p class="text-2xl font-bold">80%+</p><p>Retention</p></div>
+  </div>
+</section>
+
+<!-- ================================================= ABOUT ================================================= -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <div class="bg-white rounded-xl shadow p-8 grid md:grid-cols-[180px_1fr] gap-8">
+    <img src="LinkedIn Photo.jpg"
+         class="w-44 h-44 rounded-full object-cover mx-auto"/>
+
+    <div>
+      <h2 class="text-2xl font-bold text-blue-700">About Me</h2>
+      <p class="mt-4">
+        Strategic product executive who builds intelligent, scalable solutions at the intersection
+        of AI, Field Service, Digital Commerce, and Cloud SaaS.
+      </p>
+
+      <button onclick="openModal('about-modal')"
+              class="mt-4 text-blue-600 font-semibold hover:underline">
+        Read Full Bio →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= CORE EXPERTISE ================================================= -->
+<section class="max-w-6xl mx-auto px-6 pb-16">
+  <h2 class="text-2xl font-bold text-blue-700 mb-6">Core Expertise</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="bg-white p-6 rounded-xl shadow">Product Leadership</div>
+    <div class="bg-white p-6 rounded-xl shadow">AI & Machine Learning</div>
+    <div class="bg-white p-6 rounded-xl shadow">Enterprise Systems</div>
+  </div>
+
+  <button onclick="openModal('expertise-modal')"
+          class="mt-6 text-blue-600 font-semibold hover:underline">
+    View Detailed Expertise →
+  </button>
+</section>
+
+<!-- ================================================= LIVE IMPLEMENTATIONS ================================================= -->
+<section class="max-w-6xl mx-auto px-6 pb-16">
+  <h2 class="text-2xl font-bold text-blue-700 mb-6">Live Implementations</h2>
+
+  <div class="bg-white p-6 rounded-xl shadow">
+    <p>API-driven commerce, ERP, and Field Service transformations.</p>
+
+    <button onclick="openModal('live-impl-modal')"
+            class="mt-4 text-blue-600 font-semibold hover:underline">
+      View Full Implementations →
+    </button>
+  </div>
+</section>
+
+<!-- ================================================= CASE STUDIES ================================================= -->
+<section class="bg-slate-100 py-16">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-blue-700 mb-6">Case Studies</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-semibold">5× Revenue Growth – Digital Transformation</h3>
+        <button onclick="openModal('case-studies-modal')"
+                class="mt-3 text-blue-600 font-semibold hover:underline">
+          View Case Studies →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= INNOVATION LAB ================================================= -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-2xl font-bold text-blue-700 mb-6">
+    Thought Leadership & Innovation Lab
+  </h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white p-6 rounded-xl shadow">
+      AI Agentic Interview Workflow
+      <button onclick="openModal('innovation-modal')"
+              class="mt-3 text-blue-600 font-semibold hover:underline block">
+        View Innovation Lab →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= FOOTER ================================================= -->
+<footer class="bg-black text-slate-400 text-center py-6 text-sm">
+  © 2025 Anil Vasudevakurup — Built with product thinking
+</footer>
+
+<!-- ================================================= MODALS ================================================= -->
+
+<!-- ============ ABOUT MODAL (ORIGINAL CONTENT) ============ -->
+<div id="about-modal"
+     class="fixed inset-0 z-50 hidden bg-black/70 flex items-center justify-center px-4"
+     onclick="if(event.target===this) closeModal('about-modal')">
+  <div class="bg-white max-w-5xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-8">
+    <h2 class="text-xl font-bold text-blue-700 mb-4">About Me</h2>
+
+    <!-- ===== ORIGINAL ABOUT CONTENT (UNCHANGED) ===== -->
+    <!-- PASTE YOUR FULL ORIGINAL ABOUT ME PARAGRAPHS HERE -->
+    <!-- ============================================ -->
+
+    <button onclick="closeModal('about-modal')" class="mt-6 text-blue-600 font-semibold">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- ============ CORE EXPERTISE MODAL ============ -->
+<div id="expertise-modal"
+     class="fixed inset-0 z-50 hidden bg-black/70 flex items-center justify-center px-4"
+     onclick="if(event.target===this) closeModal('expertise-modal')">
+  <div class="bg-white max-w-5xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-8">
+    <h2 class="text-xl font-bold text-blue-700 mb-4">Core Expertise</h2>
+
+    <!-- ===== ORIGINAL CORE EXPERTISE CONTENT ===== -->
+
+    <button onclick="closeModal('expertise-modal')" class="mt-6 text-blue-600 font-semibold">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- ============ LIVE IMPLEMENTATIONS MODAL ============ -->
+<div id="live-impl-modal"
+     class="fixed inset-0 z-50 hidden bg-black/70 flex items-center justify-center px-4"
+     onclick="if(event.target===this) closeModal('live-impl-modal')">
+  <div class="bg-white max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-8">
+    <h2 class="text-xl font-bold text-blue-700 mb-4">Live Implementations</h2>
+
+    <!-- ===== ORIGINAL LIVE IMPLEMENTATIONS CONTENT ===== -->
+
+    <button onclick="closeModal('live-impl-modal')" class="mt-6 text-blue-600 font-semibold">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- ============ CASE STUDIES MODAL ============ -->
+<div id="case-studies-modal"
+     class="fixed inset-0 z-50 hidden bg-black/70 flex items-center justify-center px-4"
+     onclick="if(event.target===this) closeModal('case-studies-modal')">
+  <div class="bg-white max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-8">
+    <h2 class="text-xl font-bold text-blue-700 mb-4">Case Studies</h2>
+
+    <!-- ===== ORIGINAL CASE STUDIES CONTENT ===== -->
+
+    <button onclick="closeModal('case-studies-modal')" class="mt-6 text-blue-600 font-semibold">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- ============ INNOVATION LAB MODAL ============ -->
+<div id="innovation-modal"
+     class="fixed inset-0 z-50 hidden bg-black/70 flex items-center justify-center px-4"
+     onclick="if(event.target===this) closeModal('innovation-modal')">
+  <div class="bg-white max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-8">
+    <h2 class="text-xl font-bold text-blue-700 mb-4">Innovation Lab</h2>
+
+    <!-- ===== ORIGINAL INNOVATION LAB + A1C + AGENTIC CONTENT ===== -->
+
+    <button onclick="closeModal('innovation-modal')" class="mt-6 text-blue-600 font-semibold">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- ================================================= JS ================================================= -->
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+</script>
+
+</body>
+</html>
